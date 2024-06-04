@@ -30,10 +30,11 @@ export class ProductsController {
       }),
     }),
   )
-  async create(@Body() body: any, @UploadedFile() file: Express.Multer.File) {
+  async create(@Body() body: any, @UploadedFile() file: any) {
     const { name, price, description } = body;
     const photo = file.filename;
-    return this.productsService.create({
+
+    return this.productsService.createProduct({
       name,
       price: parseFloat(price),
       description,
