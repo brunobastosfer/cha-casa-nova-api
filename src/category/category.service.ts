@@ -9,4 +9,8 @@ export class CategoryService {
   async createCategory(data: CreateCategoryDTO) {
     return await this.categoryRepository.createCategory(data);
   }
+
+  async listCategories() {
+    return await this.categoryRepository.listCategories();
+  }
 }

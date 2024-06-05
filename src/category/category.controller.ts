@@ -13,7 +13,7 @@ export class CategoryController {
   }
 
   @Get()
-  async findAllProducts() {
-    return 'Olá mundo';
+  async findAllCategories() {
+    return await this.categoryService.listCategories();
   }
 }

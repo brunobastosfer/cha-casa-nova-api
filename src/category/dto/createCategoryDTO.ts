@@ -1,3 +1,3 @@
 export class CreateCategoryDTO {
-  tipo: string;
+  type: string;
 }

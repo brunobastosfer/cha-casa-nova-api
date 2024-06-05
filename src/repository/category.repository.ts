@@ -10,4 +10,8 @@ export class CategoryRepository {
   async createCategory(data: CreateCategoryDTO): Promise<Category> {
     return await this.prisma.category.create({ data });
   }
+
+  async listCategories(): Promise<Category[]> {
+    return await this.prisma.category.findMany();
+  }
 }
