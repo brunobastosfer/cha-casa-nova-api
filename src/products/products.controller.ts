@@ -38,11 +38,11 @@ export class ProductsController {
 
     return this.productsService.createProduct({
       name,
-      price: price,
+      price: parseFloat(String(price)),
       description,
       photo,
       categoryId,
-      quantity: quantity,
+      quantity: parseFloat(String(quantity)),
     });
   }
 
