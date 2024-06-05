@@ -33,15 +33,16 @@ export class ProductsController {
     }),
   )
   async create(@Body() body: CreateProductDTO, @UploadedFile() file: any) {
-    const { name, price, description, categoryId } = body;
+    const { name, price, description, categoryId, quantity } = body;
     const photo = file.filename;
 
     return this.productsService.createProduct({
       name,
-      price: parseFloat(price),
+      price: price,
       description,
       photo,
-      category,
+      categoryId,
+      quantity: quantity,
     });
   }
 

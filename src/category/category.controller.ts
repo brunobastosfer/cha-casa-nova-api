@@ -1,29 +1,15 @@
 // src/products/products.controller.ts
-import {
-  Controller,
-  Post,
-  Body,
-  UseInterceptors,
-  UploadedFile,
-  Get,
-} from '@nestjs/common';
-import { FileInterceptor } from '@nestjs/platform-express';
-import { ProductService } from './products.service';
-import { diskStorage } from 'multer';
-import { extname } from 'path';
+import { Controller, Post, Body, Get } from '@nestjs/common';
+import { CreateCategoryDTO } from './dto/createCategoryDTO';
+import { CategoryService } from './category.service';
 
-@Controller('products')
-export class ProductsController {
+@Controller('category')
+export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
 
   @Post()
-  async create(@Body() category: any) {
-    return this.productsService.createProduct({
-      name,
-      price: parseFloat(price),
-      description,
-      photo,
-    });
+  async create(@Body() category: CreateCategoryDTO) {
+    return await this.categoryService.createCategory(category);
   }
 
   @Get()

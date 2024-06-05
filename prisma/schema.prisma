@@ -21,6 +21,6 @@ model Product {
 
 model Category {
   id       String    @id @unique @default(uuid())
-  tipo     String
+  type     String
   products Product[]
 }
