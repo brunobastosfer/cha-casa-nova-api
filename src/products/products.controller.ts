@@ -11,6 +11,7 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { ProductService } from './products.service';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
+import { CreateProductDTO } from './dto/createProductDTO';
 
 @Controller('products')
 export class ProductsController {
@@ -31,8 +32,8 @@ export class ProductsController {
       }),
     }),
   )
-  async create(@Body() body: any, @UploadedFile() file: any) {
-    const { name, price, description } = body;
+  async create(@Body() body: CreateProductDTO, @UploadedFile() file: any) {
+    const { name, price, description, categoryId } = body;
     const photo = file.filename;
 
     return this.productsService.createProduct({
@@ -40,6 +41,7 @@ export class ProductsController {
       price: parseFloat(price),
       description,
       photo,
+      category,
     });
   }
 

@@ -7,6 +7,6 @@ export class ProductRepository {
   constructor(private readonly prisma: PrismaService) {}
 
   async createProduct(data: any): Promise<Product> {
-    return this.prisma.product.create({ data });
+    return await this.prisma.product.create({ data });
   }
 }

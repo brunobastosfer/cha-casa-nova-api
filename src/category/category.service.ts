@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { ProductRepository } from 'src/repository/products.repository';
+import { CategoryRepository } from 'src/repository/category.repository';
 
 @Injectable()
 export class CategoryService {
-  constructor(private productRepository: CategoryRepository) {}
+  constructor(private categoryRepository: CategoryRepository) {}
 
   async createProduct(data: any) {
-    return this.productRepository.createProduct(data);
+    return this.categoryRepository.createCategory(data);
   }
 }
