@@ -5,6 +5,7 @@ import {
   Body,
   UseInterceptors,
   UploadedFile,
+  Get,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ProductService } from './products.service';
@@ -40,5 +41,10 @@ export class ProductsController {
       description,
       photo,
     });
+  }
+
+  @Get()
+  async findAllProducts() {
+    return 'Olá mundo';
   }
 }

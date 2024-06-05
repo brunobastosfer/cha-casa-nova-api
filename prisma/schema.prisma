@@ -8,9 +8,17 @@ datasource db {
 }
 
 model Product {
-  id String @id @unique @default(uuid())
-  name String
-  price Float
-  category String
-  photo String
+  id         String @id @unique @default(uuid())
+  name       String
+  price      Float
+  photo      String
+  categoryId String
+
+  category Category @relation(fields: [categoryId], references: [id])
+}
+
+model Category {
+  id       String    @id @unique @default(uuid())
+  tipo     String
+  products Product[]
 }
